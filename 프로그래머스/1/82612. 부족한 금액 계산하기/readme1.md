@@ -96,14 +96,14 @@
    } else {
      return 0;
    }
- }
+  }
    ```
 코드 줄이기
 
 ---
 
 ## 최종 코드
-
+### 
 ```javascript
 function solution(price, money, count) {
     // 총 비용 계산
