@@ -1,4 +1,3 @@
-```markdown
 # [level 1] 부족한 금액 계산하기 - 82612 
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/82612) 
@@ -71,32 +70,39 @@
 
 1. **총 비용 계산**  
    놀이기구를 `count`번 이용할 때 필요한 총 비용은 다음과 같이 계산할 수 있습니다.
-   \[for(let i=0; i<count;i++){
-   \pay += price*i
-   \}\]
+   ```javascript
+   for(let i=0; i<count;i++){
+    pay += price*i
+   }
+   ```
   
 
 2. **부족 금액 계산**  
    현재 금액 `money`와 비교하여 부족한 금액을 계산합니다.  
    부족 금액이 음수면 `0`을 반환합니다.
-   \[let insufficientM = pay - money
-   \if (insufficientM > 0) {
-   \return insufficientM
-   \} else{return 0} \]
+   ```javascript
+   let insufficientM = pay - money
+   if (insufficientM > 0) {
+   return insufficientM
+   } else{return 0}
+   ```
 
 4. **답1**
-   \[function solution(price, money, count) {
-   \let pay = 0;
-   \for (let i = 1; i <= count; i++) {
-   \pay += price * i;
-   \}
-   \let insufficientM = pay - money;
-   \if (insufficientM > 0) {
-   \return insufficientM;
-   \} else {
-   \return 0;
-   \}
-   \}\]
+   ```javascript
+  function solution(price, money, count) {
+   let pay = 0;
+   for (let i = 1; i <= count; i++) {
+     pay += price * i;
+   }
+   console.log(pay);
+   let insufficientM = pay - money;
+   if (insufficientM > 0) {
+     return insufficientM;
+   } else {
+     return 0;
+   }
+ }
+   ```
 
 ---
 
@@ -110,7 +116,7 @@ function solution(price, money, count) {
     // 부족 금액 계산 (음수일 경우 0 반환)
     return Math.max(totalCost - money, 0);
 }
-```
+
 
 ---
 
@@ -131,13 +137,6 @@ function solution(price, money, count) {
        return tmp > 0 ? tmp : 0;
    }
    ```
-
----
-
-### 추가 참고 사항
-
-- 한 줄 풀이를 사용할 경우 코드 가독성이 떨어질 수 있습니다.  
-  팀 프로젝트에서는 적절한 변수명을 사용하여 가독성을 유지하는 것이 중요합니다.
 
 ---
 
