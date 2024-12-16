@@ -59,7 +59,6 @@
 <h3 style="user-select: auto !important;">참고 사항</h3>
 
 <ul style="user-select: auto !important;">
-> 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
 ---
 
 ## 풀이 과정
@@ -68,7 +67,7 @@
 1. **n번째 이용 요금**
    \[price*n\]
 
-1. **총 비용 계산**  
+2. **총 비용 계산**  
    놀이기구를 `count`번 이용할 때 필요한 총 비용은 다음과 같이 계산할 수 있습니다.
    ```javascript
    for(let i=0; i<count;i++){
@@ -76,8 +75,7 @@
    }
    ```
   
-
-2. **부족 금액 계산**  
+3. **부족 금액 계산**  
    현재 금액 `money`와 비교하여 부족한 금액을 계산합니다.  
    부족 금액이 음수면 `0`을 반환합니다.
    ```javascript
@@ -116,11 +114,11 @@ function solution(price, money, count) {
     // 부족 금액 계산 (음수일 경우 0 반환)
     return Math.max(totalCost - money, 0);
 }
-
+```
 
 ---
 
-
+---
 
 ## 성능 최적화 및 분석
 
@@ -128,7 +126,7 @@ function solution(price, money, count) {
    등차수열 공식을 사용하여 연산을 상수 시간(`O(1)`)에 처리합니다.  
    반복문(`for`)을 사용한 풀이보다 빠르고 간결합니다.
 
-2. **대안 코드 비교**  
+2. **다른사람 코드 비교**  
    다른 풀이에서는 비용 계산 시 한 번의 연산으로 금액 비교를 끝냅니다.
    속도가 미세하게 빨라집니다.
    ```javascript
