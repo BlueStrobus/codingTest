@@ -56,9 +56,6 @@
 <p style="user-select: auto !important;">입출력 예 #1<br style="user-select: auto !important;">
 이용금액이 3인 놀이기구를 4번 타고 싶은 고객이 현재 가진 금액이 20이라면, 총 필요한 놀이기구의 이용 금액은 30 <strong style="user-select: auto !important;">(= 3+6+9+12)</strong> 이 되어 10만큼 부족하므로 10을 return 합니다.</p>
 
-<h3 style="user-select: auto !important;">참고 사항</h3>
-
-<ul style="user-select: auto !important;">
 ---
 
 ## 풀이 과정
@@ -101,10 +98,11 @@
    }
  }
    ```
+코드 줄이기
 
 ---
 
-### 최종 코드
+## 최종 코드
 
 ```javascript
 function solution(price, money, count) {
@@ -116,11 +114,9 @@ function solution(price, money, count) {
 }
 ```
 
----
 
----
 
-## 성능 최적화 및 분석
+### 성능 최적화 및 분석
 
 1. **효율성**  
    등차수열 공식을 사용하여 연산을 상수 시간(`O(1)`)에 처리합니다.  
