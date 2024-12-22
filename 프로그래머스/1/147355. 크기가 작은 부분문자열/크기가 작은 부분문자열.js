@@ -1,13 +1,11 @@
 function solution(t, p) {
-    let count = 0;
-    let pNum = +p; // p를 숫자로 변환
+  let count = 0;
+  const pNum = +p;
+  const pLen = p.length;
 
-    for (let i = 0; i <= t.length - p.length; i++) {
-        let subNum = +t.slice(i, i + p.length); // 부분 문자열을 숫자로 변환
-        if (subNum <= pNum) {
-            count++;
-        }
-    }
+  for (let i = 0, len = t.length - pLen + 1; i < len; i++) {
+      if (+t.slice(i, i + pLen) <= pNum) count++;
+  }
 
-    return count;
+  return count;
 }
