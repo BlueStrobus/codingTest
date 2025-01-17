@@ -1,19 +1,16 @@
 function solution(number, limit, power) {
-    let divisorCount = [];
-    for (let i = 1; i <= number; i++) {
-        // i의 약수 개수
-        let count = 0; // 약수 개수
-        for (let j = 1; j <= Math.sqrt(i); j++) {
-            if (i % j === 0) {
-                count++; // j가 약수인 경우
-                if (j !== i / j) {
-                    count++; // 대칭되는 약수 추가
-                }
+    const getDivisorCount = (n) => {
+        let count = 0;
+        for (let i = 1; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                count += (i === n / i) ? 1 : 2; // 제곱근인 경우 1 추가, 아니면 2 추가
             }
         }
-        divisorCount.push(count);
-    }
-    divisorCount = divisorCount.map((num) => (num > limit ? power : num));
-    let sum = divisorCount.reduce((acc, curr) => acc + curr, 0);
-    return sum;
+        return count;
+    };
+
+    return Array.from({ length: number }, (_, i) => {
+        const divisorCount = getDivisorCount(i + 1);
+        return divisorCount > limit ? power : divisorCount;
+    }).reduce((acc, curr) => acc + curr, 0);
 }
