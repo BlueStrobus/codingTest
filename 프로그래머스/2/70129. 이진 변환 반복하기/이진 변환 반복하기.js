@@ -1,20 +1,15 @@
 function solution(s) {
-    var answer = [0, 0];
+    let ans = [0, 0];
 
-    let logicX = (x) => {
-        let arrX = [...x];
-        let zeroCount = arrX.filter((v) => v === "0").length;
-        answer[1] += zeroCount;
+    while (s !== "1") {
+        let oldLen = s.length;
+        s = s.replace(/0/g, "");
+        let newLen = s.length;
 
-        let x2 = arrX.length - zeroCount;
-        answer[0]++;
-        
-        return x2.toString(2);
-    };
-
-    while (s.length > 1) {
-        s = logicX(s);
+        ans[1] += oldLen - newLen;
+        s = newLen.toString(2);
+        ans[0]++;
     }
 
-    return answer;
+    return ans;
 }
