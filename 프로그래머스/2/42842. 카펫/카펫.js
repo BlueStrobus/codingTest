@@ -1,12 +1,8 @@
 function solution(brown, yellow) {
-    for (let yX = 1; yX <= Math.sqrt(yellow); yX++) {
+    for (let yX = 1; yX * yX <= yellow; yX++) {
         if (yellow % yX === 0) {
-            let yY = yellow / yX;
-            let bX = yY + 2;
-            let bY = yX + 2;
-            if (brown === 2 * (bX + bY - 2)) {
-                return [bX, bY];
-            }
+            let bX = yellow / yX + 2, bY = yX + 2;
+            if (brown === 2 * (bX + bY - 2)) return [bX, bY];
         }
     }
 }
