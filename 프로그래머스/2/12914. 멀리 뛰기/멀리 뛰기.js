@@ -1,10 +1,12 @@
-const solution = (n) => {
-  const MOD = 1234567;
-  let dp = [0, 1, 2];  // dp[1] = 1, dp[2] = 2
+function solution(n) {
+    const MOD = 1234567;
+    let a = 1, b = 2;
 
-  for (let i = 3; i <= n; i++) {
-      dp[i] = (dp[i - 1] + dp[i - 2]) % MOD;
-  }
+    for (let i = 3; i <= n; i++) {
+        let temp = (a + b) % MOD;
+        a = b;
+        b = temp;
+    }
 
-  return dp[n];
-};
+    return n === 1 ? 1 : b;
+}
