@@ -1,22 +1,17 @@
-const solution = (elements) => {
-    const sums = new Set(); // Using Set to store unique sums
+const solution = (arr) => {
+    const sums = new Set();
+    const n = arr.length;
     
-    // For each possible length of subsequence
-    for (let length = 1; length <= elements.length; length++) {
-        // For each starting position
-        for (let start = 0; start < elements.length; start++) {
-            let currentSum = 0;
-            
-            // Calculate sum for current length from starting position
-            for (let i = 0; i < length; i++) {
-                // Use modulo to wrap around the array
-                let index = (start + i) % elements.length;
-                currentSum += elements[index];
-            }
-            
-            sums.add(currentSum);
+    // 배열을 2배로 확장하여 원형 처리
+    const extended = arr.concat(arr.slice(0, n-1));
+    
+    // 길이 1부터 n까지 모든 연속 부분 수열의 합 계산
+    for (let len = 1; len <= n; len++) {
+        for (let i = 0; i < n; i++) {
+            sums.add(extended.slice(i, i + len)
+                    .reduce((a, b) => a + b));
         }
     }
     
-    return sums.size; // Return count of unique sums
+    return sums.size;
 };
